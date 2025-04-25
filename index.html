@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Party Adventures</title>
+    <style>
+        /* Existing styles */
+        /* ... [UNCHANGED - all your current styles here] ... */
+
+        /* New Testimonials Section */
+        .testimonials {
+            background: #ffe0f0;
+            padding: 40px;
+            text-align: center;
+        }
+        .testimonial-card {
+            background: #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .testimonial-card p {
+            font-style: italic;
+        }
+        .testimonial-card h4 {
+            margin-top: 10px;
+            color: #ff6b6b;
+        }
+
+        /* Countdown Section */
+        .countdown {
+            background: #ffd6e0;
+            padding: 40px;
+            text-align: center;
+        }
+        #timer {
+            font-size: 2em;
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+
+        /* Instagram Feed Section */
+        .instagram-feed {
+            background: #fef6f9;
+            padding: 40px;
+            text-align: center;
+        }
+        .instagram-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .instagram-grid img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Existing Body -->
+    <!-- ... [UNCHANGED - all your current body sections here] ... -->
+
+    <section class="testimonials fade-in">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-card">
+            <p>"The beach party was like a dream! Perfectly organized and so much fun!"</p>
+            <h4>- Alex R.</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"The mountain trip was breathtaking. Thanks for making it unforgettable!"</p>
+            <h4>- Priya S.</h4>
+        </div>
+    </section>
+
+    <section class="countdown fade-in">
+        <h2>Next Big Party Starts In:</h2>
+        <div id="timer">Loading...</div>
+    </section>
+
+    <section class="instagram-feed fade-in">
+        <h2>Follow Our Adventures</h2>
+        <div class="instagram-grid">
+            <img src="https://via.placeholder.com/150" alt="Insta Photo 1">
+            <img src="https://via.placeholder.com/150" alt="Insta Photo 2">
+            <img src="https://via.placeholder.com/150" alt="Insta Photo 3">
+            <img src="https://via.placeholder.com/150" alt="Insta Photo 4">
+            <img src="https://via.placeholder.com/150" alt="Insta Photo 5">
+            <img src="https://via.placeholder.com/150" alt="Insta Photo 6">
+        </div>
+    </section>
+
+    <footer class="fade-in">
+        <p>&copy; 2025 Travel & Party Adventures. All rights reserved.</p>
+    </footer>
+
+    <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">&#8679;</button>
+
+    <script>
+        // Scroll to top button script
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Countdown Timer Script
+        const eventDate = new Date("December 31, 2025 23:59:59").getTime();
+        const timerElement = document.getElementById("timer");
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            timerElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                timerElement.innerHTML = "Event Started!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
